@@ -1,2 +1,2 @@
 # App-User-Service
-Api para gestão de usuários do projeto elaborado para a disciplina de projeto integrador III, app para gestão de tarefas e tempo
+Api para gestão de usuários e pessoas do app Touch, esta realiza todos os processos necessários, além de intermediar a comunicação com a database.
