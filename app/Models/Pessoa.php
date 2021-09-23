@@ -11,8 +11,7 @@ class Pessoa extends Model
     protected $fillable = [
         'nome',
         'email',
-        'documento',
-        'tipo_documento',
+        'senha',
         'cep',
         'rua',
         'estado',

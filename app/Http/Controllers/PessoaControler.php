@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pessoa;
-use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Request;
 
 class PessoaControler extends Controller
 {
+    public $validations = [
+        'nome' => 'string|required',
+        'email' => 'email|required',
+        'senha' => 'string|required',
+    ];
+
     public function index()
     {
         return Pessoa::all();
@@ -19,14 +25,15 @@ class PessoaControler extends Controller
 
     public function store(Request $request)
     {
+        $request->validate($this->validations);
+
         $pessoa =  Pessoa::create($request->all());
 
         return response()->json($pessoa, 201);
     }
-    
+
     public function update(Request $request, Pessoa $pessoa)
     {
-        var_dump($request->all());
         $pessoa->update($request->all());
 
         return response()->json($pessoa, 200);
